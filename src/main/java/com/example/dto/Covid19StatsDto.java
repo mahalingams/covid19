@@ -3,6 +3,7 @@ package com.example.dto;
 import java.util.Date;
 
 public class Covid19StatsDto {
+
 	private Long id;
 	private String city;
 	private String province;
@@ -12,6 +13,24 @@ public class Covid19StatsDto {
 	private Long confirmed;
 	private Long deaths;
 	private Long recovered;
+
+	public Covid19StatsDto() {
+		super();
+	}
+
+	public Covid19StatsDto(Long id, String city, String province, String country, Date lastUpdate, String keyId,
+			Long confirmed, Long deaths, Long recovered) {
+		super();
+		this.id = id;
+		this.city = city;
+		this.province = province;
+		this.country = country;
+		this.lastUpdate = lastUpdate;
+		this.keyId = keyId;
+		this.confirmed = confirmed;
+		this.deaths = deaths;
+		this.recovered = recovered;
+	}
 
 	public Long getId() {
 		return id;
@@ -83,6 +102,13 @@ public class Covid19StatsDto {
 
 	public void setRecovered(Long recovered) {
 		this.recovered = recovered;
+	}
+
+	@Override
+	public String toString() {
+		return "Covid19StatsDto [id=" + id + ", city=" + city + ", province=" + province + ", country=" + country
+				+ ", lastUpdate=" + lastUpdate + ", keyId=" + keyId + ", confirmed=" + confirmed + ", deaths=" + deaths
+				+ ", recovered=" + recovered + "]";
 	}
 
 }

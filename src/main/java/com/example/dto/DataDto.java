@@ -6,6 +6,7 @@ import java.util.List;
 public class DataDto {
 
 	private Date lastChecked;
+
 	private List<Covid19StatsDto> covid19Stats;
 
 	public Date getLastChecked() {
@@ -23,4 +24,10 @@ public class DataDto {
 	public void setCovid19Stats(List<Covid19StatsDto> covid19Stats) {
 		this.covid19Stats = covid19Stats;
 	}
+
+	@Override
+	public String toString() {
+		return "DataDto [lastChecked=" + lastChecked + ", covid19Stats=" + covid19Stats + "]";
+	}
+	
 }

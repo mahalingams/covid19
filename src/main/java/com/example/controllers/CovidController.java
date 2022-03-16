@@ -16,8 +16,12 @@ import com.example.services.CovidService;
 @RequestMapping("api/covid")
 public class CovidController {
 
+	private CovidService covidService;
+
 	@Autowired
-	CovidService covidService;
+	public CovidController(CovidService covidService) {
+		this.covidService = covidService;
+	}
 
 	/**
 	 * This method is used to get the all countries covid 19 details.
@@ -49,12 +53,31 @@ public class CovidController {
 	 */
 	@GetMapping("/get-usa-with-limit/{page}/{size}")
 	public List<Covid19StatsDto> getUsa(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size) {
-
 		return covidService.getUsa(page, size);
 	}
-	@PostMapping("/SaveDetails")
-	public void saveDetails() {
-		covidService.saveDetails();
+
+	/**
+	 * This method is used to save the USA country covid 19 details in table.
+	 * 
+	 * @return string .
+	 */
+	@PostMapping("/save-usa-details")
+	public String saveUSADetails() {
+		return covidService.saveDetails();
+
 	}
+
+	/**
+	 * This method is used to get the USA country covid 19 details from table.
+	 * 
+	 * @param page this used which page records need to fetch
+	 * @param size this used to how many records need to fetch
+	 * @return list This returns list of covid 19 details.
+	 */
+	@GetMapping("/get-usa-details-with-table/{page}/{size}")
+	public List<Covid19StatsDto> getUsaDetailsWithTable(@PathVariable(name = "page") int page,
+			@PathVariable(name = "size") int size) {
+		return covidService.getUsaDetailsWithTable(page, size);
 	}
+
 }

@@ -2,6 +2,7 @@ package com.example.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,16 +10,33 @@ import javax.persistence.Id;
 
 @Entity
 public class Covid19Stats {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(name = "CITY")
 	private String city;
+
+	@Column(name = "PROVINCE")
 	private String province;
+
+	@Column(name = "COUNTRY")
 	private String country;
+
+	@Column(name = "LASTUPDATE")
 	private Date lastUpdate;
+
+	@Column(name = "KEYID")
 	private String keyId;
+
+	@Column(name = "CONFIRMID")
 	private Long confirmed;
+
+	@Column(name = "DEATHS")
 	private Long deaths;
+
+	@Column(name = "RECOVERED")
 	private Long recovered;
 
 	public Long getId() {
